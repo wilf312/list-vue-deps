@@ -5,3 +5,8 @@ vueの起点になるページコンポーネントが依存しているファ�
 
 たぶん、webpack configのaliasとbasePathを基準に、
 .vueのscript内を行ごとにスクレイプすればいいやつ。
+
+
+```
+npx nodemon find.js
+```
