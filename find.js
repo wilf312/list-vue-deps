@@ -1,55 +1,47 @@
 /**
  * 依存ファイルの探索用
+ * 1. 基幹ファイル取得
+ * 2. ファイルのパース
+ * 3. aliasの整形
+ * 4. 絶対パス一覧の生成
  */
+const {readFile, getImportLines, parseImportPath, formatImportPath} = require('./libs/path')
+
 const path = require('path')
-const fs = require('fs')
-const webpackAlias = require('./webpack.config').resolve.alias
+const webpackPath = process.env.webpackPath
+let webpackAlias = ''
 
-console.log(webpackAlias)
+if (!!webpackPath) {
+  webpackAlias = require(webpackPath).resolve.alias
+}
 
-const filePath = 'src/components/pages/users-show/index.vue'
-const dir = __dirname
 
-const re = path.resolve(__dirname, filePath)
+const filePath = 'example/vue-project/src/views/Home.vue'
 
-console.log(filePath)
-console.log(dir)
-console.log(re)
+let file = null
 
-const file = fs.readFileSync(re, 'utf8')
+try {
+  file = readFile(filePath)
+} catch(error) {
+  console.error(error)
+  return
+}
 
-if (!file) {
-  console.error('ファイルが見つかりません')
-} else if (file.indexOf('</script>') === -1) {
+if (file.indexOf('</script>') === -1) {
   console.error('scriptタグがありません', file.indexOf('</script>'))
   return
 } else {
   console.log('success')
 
-  // scriptタグ内を取得
-  const script = file.split('<script>')[1].split('</script>')[0]
-  // console.log(script)
-  // importとfromが含まれる行を抽出
-  const importLine = script
-    .split('\n')
-    .filter(
-      line => line.indexOf('import') !== -1 && line.indexOf('from') !== -1
-    )
+  const importLineList = getImportLines(file)
 
-  // ファイルパスを抽出
-  // @doc https://regexper.com/#%2Ffrom%20'%28%5B%40%7C%2F%7Ca-z%7C%5C-%7C.%5D*%29'%2F
-  const re = /from '([@|/|a-z|\-|.]*)'/
-  const aaa = importLine.map(d => d.match(re)[1])
-  // console.log( JSON.stringify(aaa, null, 2))
-
-  // aliasを解決
-  const keys = Object.keys(webpackAlias)
-  const resolvedAlias = aaa.map(d => {
-    keys[0]
-    return
+  const formattedLineList = formatImportPath(importLineList, {
+    '@': path.resolve(__dirname, 'example/vue-project/src')
   })
 
+  const pathList = parseImportPath(formattedLineList)
 
+  console.log(pathList)
 }
 
 // console.log(file)
