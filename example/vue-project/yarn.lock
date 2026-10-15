@@ -848,6 +848,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@dual-bundle/import-meta-resolve@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@dual-bundle/import-meta-resolve/-/import-meta-resolve-4.2.1.tgz#cd0b25b3808cd9e684cd6cd549bbf8e1dcf05ee7"
+  integrity sha512-id+7YRUgoUX6CgV0DtuhirQWodeeA7Lf4i2x71JS/vtA5pRb/hIGWlw+G6MeXvsM+MXrz0VAydTGElX1rAfgPg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/@hapi/address/download/@hapi/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -922,6 +927,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
+
+"@pkgr/core@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.3.6.tgz#3569708bd4be4d8870ba32bf1c456dac81600d97"
+  integrity sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.1"
@@ -3508,12 +3518,13 @@ eslint-loader@^2.2.1:
     object-hash "^1.1.4"
     rimraf "^2.6.1"
 
-eslint-plugin-prettier@^3.1.3:
-  version "3.2.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.2.0.tgz?cache=0&sync_timestamp=1606976546487&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-prettier%2Fdownload%2Feslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
-  integrity sha1-rzkbIib6DhXJbzbHM/bpA129lSw=
+eslint-plugin-prettier@^5.0.0:
+  version "5.5.7"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.5.7.tgz#ebef3acc2d664333b1356b717780198abc635398"
+  integrity sha512-WjHyn3GrFd+ZR0rzsLiM4zJZ35PZMOE0SUIxzGmnWNG0126yNfJKJzObmmkYDwHJfGlkz3PSlzyG9ez/LJntwg==
   dependencies:
-    prettier-linter-helpers "^1.0.0"
+    prettier-linter-helpers "^1.0.1"
+    synckit "^0.12.3"
 
 eslint-plugin-vue@^6.2.2:
   version "6.2.2"
@@ -6855,10 +6866,10 @@ prepend-http@^1.0.0:
   resolved "https://registry.npm.taobao.org/prepend-http/download/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
-prettier-linter-helpers@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/prettier-linter-helpers/download/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
-  integrity sha1-0j1B/hN1ZG3i0BBNNFSjAIgCz3s=
+prettier-linter-helpers@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.1.tgz#6a31f88a4bad6c7adda253de12ba4edaea80ebcd"
+  integrity sha512-SxToR7P8Y2lWmv/kTzVLC1t/GDI2WGjMwNhLLE9qtH8Q13C+aEmuRlzDst4Up4s0Wc8sF2M+J57iB3cMLqftfg==
   dependencies:
     fast-diff "^1.1.2"
 
@@ -8028,6 +8039,14 @@ symbol-observable@^1.1.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+
+synckit@^0.12.3:
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.12.3.tgz#6e30a3441d095ed04c311077350ce205465512d6"
+  integrity sha512-U+/AXT6LWsxnj2vz9HeUuPWBNgdWxjyIEjEPdbJARC9txmgPzo2VEdqnFo4hHaNyMPtycyVJrSaQYeQv/PoyyA==
+  dependencies:
+    "@dual-bundle/import-meta-resolve" "^4.2.1"
+    "@pkgr/core" "^0.3.6"
 
 table@^5.2.3:
   version "5.4.6"
